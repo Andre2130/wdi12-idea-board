@@ -18,7 +18,7 @@ connection.on('error', (err) => {
     console.log('MongoDB Error: ', err)
 })
 
-app.use(express.static(`${_dirname}/client/build`))
+app.use(express.static(`${__dirname}/client/build`))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
