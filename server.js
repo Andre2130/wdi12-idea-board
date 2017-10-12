@@ -18,13 +18,14 @@ connection.on('error', (err) => {
     console.log('MongoDB Error: ', err)
 })
 
+app.use(express.static(`${_dirname}/client/build`))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-    res.send('Hello World')
+    res.sendFile(__dirname + '/client/build/index.html')
 })
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log('App listening on port: ', PORT)
 })
